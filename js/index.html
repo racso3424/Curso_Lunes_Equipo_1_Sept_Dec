@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre mí · Oscar Rodarte</title>
+
+  <!-- Bootstrap (ya lo usas en tu página) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+  <!-- Tipografías redondeadas al estilo Bluey -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Paleta inspirada en Bluey */
+      --bluey-700:#2B6CA3; /* azul profundo */
+      --bluey-600:#3F84BF;
+      --bluey-500:#5DB7E8; /* azul vivo */
+      --bluey-300:#9BD9F5; /* celeste */
+      --bingo-400:#F49AA5; /* rosa cálido */
+      --sun-400:#F6C44B; /* amarillo miel */
+      --cream:#FFF8E7;   /* crema suave */
+      --sky-50:#F4FBFF;  /* casi blanco */
+      --ink:#0F2B46;     /* texto principal */
+      --shadow:0 10px 30px rgba(15,43,70,.12);
+      --radius-xl: 1.5rem;
+    }
+
+    html, body{
+      height:100%;
+    }
+
+    body{
+      font-family:'Nunito', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--ink);
+      background: linear-gradient(180deg, var(--sky-50) 0%, #EAF7FF 40%, #E2F4FF 100%);
+      overflow-x:hidden;
+    }
+
+    /* HERO */
+    .hero{
+      position:relative;
+      padding: 6rem 0 4rem;
+      background: radial-gradient(1200px 500px at 10% -10%, rgba(93,183,232,.35) 0%, rgba(93,183,232,0) 60%),
+                  radial-gradient(900px 400px at 90% -20%, rgba(244,154,165,.25) 0%, rgba(244,154,165,0) 60%);
+      overflow:hidden;
+    }
+
+    .hero .title{
+      font-family:'Baloo 2', cursive;
+      font-weight:800;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      letter-spacing:.5px;
+      color: var(--bluey-700);
+      /* Borde tipo caricatura */
+      -webkit-text-stroke: 3px #ffffff;
+      text-shadow: 2px 2px 0 #ffffff, -2px 2px 0 #ffffff, 2px -2px 0 #ffffff, -2px -2px 0 #ffffff, 0 4px 0 rgba(0,0,0,.08);
+    }
+
+    .hero .subtitle{
+      color: var(--bluey-600);
+      font-weight:700;
+      font-size: clamp(1.1rem, 2.3vw, 1.6rem);
+    }
+
+    .badge-chip{
+      background: #fff;
+      border: 2px solid var(--bluey-300);
+      color: var(--bluey-700);
+      border-radius: 999px;
+      font-weight: 700;
+      padding:.6rem 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    /* Carta principal */
+    .profile-card{
+      border: 4px solid #fff;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, #fff 0%, #fff 60%, var(--cream) 100%);
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .profile-card::before{
+      /* Nubecitas suaves en la tarjeta */
+      content:"";
+      position:absolute; inset: -50% -30% auto auto;
+      width: 120%; height: 120%;
+      background:
+        radial-gradient(35px 20px at 10% 18%, rgba(255,255,255,.9) 50%, rgba(255,255,255,0) 55%),
+        radial-gradient(25px 15px at 18% 22%, rgba(255,255,255,.9) 50%, rgba(255,255,255,0) 55%),
+        radial-gradient(40px 22px at 25% 18%, rgba(255,255,255,.9) 50%, rgba(255,255,255,0) 55%),
+        radial-gradient(30px 18px at 32% 20%, rgba(255,255,255,.9) 50%, rgba(255,255,255,0) 55%),
+        radial-gradient(35px 20px at 70% 18%, rgba(255,255,255,.9) 50%, rgba(255,255,255,0) 55%);
+      opacity:.4;
+    }
+
+    .avatar{
+      width:110px; height:110px;
+      border-radius:50%;
+      display:grid; place-items:center;
+      font-family:'Baloo 2', cursive;
+      font-size: 48px; font-weight:800; color:#174A75;
+      background: conic-gradient(from 200deg at 50% 40%, var(--bluey-500), var(--bluey-300));
+      border: 5px solid #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-btn{
+      background: linear-gradient(180deg, var(--sun-400), #F4B431);
+      border:none; color:#5A3C00;
+      font-weight:800; letter-spacing:.4px;
+      border-radius: 999px;
+      padding: .85rem 1.25rem;
+      box-shadow: 0 8px 0 #D79C22, 0 14px 30px rgba(0,0,0,.12);
+      transform: translateY(0);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .cta-btn:hover{ transform: translateY(-2px); box-shadow: 0 10px 0 #D79C22, 0 18px 34px rgba(0,0,0,.16); }
+    .cta-btn:active{ transform: translateY(1px); box-shadow: 0 6px 0 #D79C22, 0 10px 24px rgba(0,0,0,.12); }
+
+    /* Nubes decorativas */
+    .cloud{ position:absolute; filter: drop-shadow(0 4px 6px rgba(0,0,0,.08)); opacity:.9; }
+    .cloud svg{ display:block; }
+    .cloud.c1{ top: 2rem; left: -180px; animation: drift 60s linear infinite; }
+    .cloud.c2{ top: 7rem; left: -220px; animation: drift 85s linear infinite reverse; opacity:.7; }
+    .cloud.c3{ top: 12rem; left: -200px; animation: drift 70s linear infinite; opacity:.8; }
+    @keyframes drift{ to{ transform: translateX(140vw); } }
+
+    /* Onda en el pie del hero */
+    .wave{
+      position:absolute; left:0; right:0; bottom:-1px; height:120px;
+      color: var(--bluey-500);
+    }
+
+    /* Sección inferior con colinitas */
+    .hills{
+      position:relative; height: 160px; margin-top: 4rem;
+    }
+    .hills svg{ position:absolute; inset:0; width:100%; height:100%; display:block; }
+
+    footer{
+      color:#14476F; font-weight:700;
+    }
+
+    /* Utilidades */
+    .soft-shadow{ box-shadow: var(--shadow); }
+    .rounded-2xl{ border-radius: var(--radius-xl); }
+    .text-outline-white{-webkit-text-stroke: 2px #fff;}
+  </style>
+</head>
+<body>
+  <a class="visually-hidden-focusable position-absolute top-0 start-0 m-3 z-3" href="#contenido">Saltar al contenido</a>
+
+  <!-- HERO con nubes -->
+  <header class="hero">
+    <!-- Nubes SVG (decorativas) -->
+    <div class="cloud c1" aria-hidden="true">
+      <svg width="170" height="70" viewBox="0 0 170 70" xmlns="http://www.w3.org/2000/svg" fill="#fff">
+        <path d="M30 55h100a25 25 0 0 0 0-50c-10 0-19 6-22 15C103 12 92 5 80 5 64 5 51 17 50 33c-5-3-11-5-17-5C18 28 7 39 7 53c0 1 0 2 0 2h23z"/>
+      </svg>
+    </div>
+    <div class="cloud c2" aria-hidden="true">
+      <svg width="210" height="80" viewBox="0 0 210 80" xmlns="http://www.w3.org/2000/svg" fill="#fff">
+        <path d="M40 60h120a28 28 0 0 0 0-56c-12 0-22 7-26 17C122 9 110 2 96 2 78 2 64 16 63 34c-6-3-13-5-20-5C21 29 8 42 8 58l1 2h31z"/>
+      </svg>
+    </div>
+    <div class="cloud c3" aria-hidden="true">
+      <svg width="140" height="60" viewBox="0 0 140 60" xmlns="http://www.w3.org/2000/svg" fill="#fff">
+        <path d="M20 45h80a20 20 0 0 0 0-40c-8 0-15 5-18 12C78 9 69 3 60 3 48 3 39 12 38 24c-4-2-8-4-13-4C13 20 4 29 4 41v2h16z"/>
+      </svg>
+    </div>
+
+    <div class="container position-relative" id="contenido">
+      <div class="row align-items-center g-4">
+        <div class="col-12 col-lg-6 text-center text-lg-start">
+          <h1 class="title mb-3">¡Hola! Soy Oscar Rodarte</h1>
+          <p class="subtitle mb-4">Desarrollo de Software Multiplataforma · TSU</p>
+          <div class="d-flex gap-2 flex-wrap justify-content-center justify-content-lg-start mb-4">
+            <span class="badge-chip">Python & PHP</span>
+            <span class="badge-chip">Automatización SAP</span>
+            <span class="badge-chip">Web Scraping</span>
+            <span class="badge-chip">Transport Management Systems</span>
+          </div>
+          <a class="btn cta-btn" href="#sobre-mi">Ver más de mí</a>
+        </div>
+        <div class="col-12 col-lg-6 d-flex justify-content-center justify-content-lg-end">
+          <div class="avatar" aria-hidden="true" title="Avatar">O</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Onda inferior -->
+    <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,64L48,80C96,96,192,128,288,133.3C384,139,480,117,576,90.7C672,64,768,32,864,26.7C960,21,1056,43,1152,69.3C1248,96,1344,128,1392,144L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z" fill="currentColor"/>
+    </svg>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="container my-5">
+    <section id="sobre-mi" class="profile-card p-4 p-md-5 rounded-2xl">
+      <div class="row g-4 align-items-center">
+        <div class="col-md-7">
+          <h2 class="fw-extrabold" style="font-family:'Baloo 2'; color:var(--bluey-700);">Sobre mí</h2>
+          <p class="fs-5 mb-3">
+            ¡Hola! Soy <strong>Oscar</strong>, apasionado por crear soluciones <em>limpias y útiles</em> que ahorren tiempo.
+            Trabajo con Python, PHP, Excel/VBA y Playwright para automatizar procesos (SAP, scraping, reportes) y me gusta
+            explicar lo que hago de forma sencilla para que cualquiera lo pueda usar.
+          </p>
+          <p class="fs-5 mb-0">
+            Además, me encanta tocar la <strong>guitarra 🎸</strong>, enseñar y aprender cosas nuevas cada semana.
+          </p>
+        </div>
+        <div class="col-md-5">
+          <div class="p-4 bg-white rounded-2xl soft-shadow h-100 d-flex flex-column justify-content-center">
+            <h3 class="mb-3" style="font-family:'Baloo 2'; color:var(--bluey-600);">Lo que más disfruto</h3>
+            <ul class="list-unstyled m-0 fs-6">
+              <li class="mb-2">✔️ Automatizar tareas repetitivas</li>
+              <li class="mb-2">✔️ Integrar datos de varias fuentes</li>
+              <li class="mb-2">✔️ Crear interfaces claras y bonitas</li>
+              <li class="mb-2">✔️ Tocar canciones de indie/rock</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-5">
+      <div class="row g-4">
+        <div class="col-sm-6 col-lg-4">
+          <div class="p-4 bg-white rounded-2xl soft-shadow h-100">
+            <h4 class="mb-2" style="font-family:'Baloo 2'; color:var(--bluey-700);">Tecnologías</h4>
+            <p class="mb-0">Python, PHP, Playwright, Selenium, Excel/VBA, Bootstrap, MySQL</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <div class="p-4 rounded-2xl soft-shadow h-100" style="background:linear-gradient(180deg, var(--bluey-300), #ffffff);">
+            <h4 class="mb-2" style="font-family:'Baloo 2'; color:#14476F;">Proyectos</h4>
+            <p class="mb-0">TMS para rastreo de contenedores, bots de SAP, paneles en Excel y Web.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <div class="p-4 rounded-2xl soft-shadow h-100" style="background:linear-gradient(180deg, var(--cream), #ffffff);">
+            <h4 class="mb-2" style="font-family:'Baloo 2'; color:#6A3C00;">Contacto</h4>
+            <p class="mb-3">¿Platicamos? Estoy abierto a colaborar y aprender.</p>
+            <a class="btn btn-sm cta-btn" href="#" role="button">Escríbeme</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Colinitas al estilo caricatura -->
+    <div class="hills" aria-hidden="true">
+      <svg viewBox="0 0 1440 160" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="hillGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#A9E4FF"/>
+            <stop offset="100%" stop-color="#7ECDF2"/>
+          </linearGradient>
+        </defs>
+        <path d="M0 120 C 180 40, 320 40, 520 120 S 900 200, 1440 110 V 160 H 0 Z" fill="url(#hillGrad)"/>
+        <path d="M0 140 C 220 70, 420 70, 680 140 S 1060 210, 1440 130 V 160 H 0 Z" fill="#8ED7F5" opacity=".8"/>
+      </svg>
+    </div>
+  </main>
+
+  <footer class="py-4 text-center">
+    <small>Hecho por · © <span id="year"></span> Oscar Rodarte</small>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
