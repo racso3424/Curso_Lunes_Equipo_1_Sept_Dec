@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mi Página de Presentación</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ff6b6b, #ffa500, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
+      background-size: 1200% 1200%;
+      animation: backgroundAnimation 30s ease infinite;
+    }
+
+    @keyframes backgroundAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    header {
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #333;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      margin: 20px;
+    }
+
+    main {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      margin: 20px;
+      border-radius: 10px;
+    }
+
+    .profile-image {
+      display: block;
+      margin: 0 auto;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-image: url('https://imgs.search.brave.com/NyKq9BIP2fZzXhA7F0JK_pa9jCDLNpA_OpDlR9MSqyw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9iLnRo/dW1icy5yZWRkaXRt/ZWRpYS5jb20vaDBS/YTQ3UlJUQlVLYUhB/TGhhbF9kR1NjZjZ1/QzZ3bWw1VTBDZUsx/cjU5RS5qcGc');
+      background-size: cover;
+      background-position: center;
+    }
+
+    footer {
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #333;
+      padding: 10px;
+      text-align: center;
+      border-radius: 10px;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>¡What's up Hommie!</h1>
+  </header>
+  
+  <main>
+    <div class="profile-image"></div>
+    <h2>Sobre mí</h2>
+    <p>Mi nombre es Muñoz Carrillo Obed y esta es mi página de presentación. Estos son algunos mis intereses.</p>
+    
+    <h2>Mis Intereses</h2>
+    <ul>
+      <li>La música</li>
+      <li>La fotografía</li>
+      <li>Saber Linux</li>
+    </ul>
+</body>
+</html>
