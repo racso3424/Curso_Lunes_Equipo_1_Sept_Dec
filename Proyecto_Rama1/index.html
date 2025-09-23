@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Presentación - Gamer Style</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Press Start 2P', cursive;
+      background: #0d0d0d;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(90deg, #8a2be2, #00f, #0ff);
+      background-size: 400% 400%;
+      animation: gradientMove 8s ease infinite;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin: 0;
+      text-shadow: 2px 2px 8px #000;
+    }
+
+    .typewriter span {
+      border-right: 2px solid #fff;
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    }
+
+    h2 {
+      color: #0ff;
+      margin-bottom: 15px;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    /* Botón estilo gamer */
+    .btn-gamer {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 15px;
+      background: #0ff;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      box-shadow: 0 0 15px #0ff;
+      transition: 0.3s;
+    }
+
+    .btn-gamer:hover {
+      background: #8a2be2;
+      color: #fff;
+      box-shadow: 0 0 20px #8a2be2;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <canvas id="bg"></canvas>
+  <header>
+    <h1 class="typewriter">Hola, soy <span id="name"></span></h1>
+  </header>
+
+  <section>
+    <h2>🎮 Sobre mí</h2>
+    <p>Apasionado por los videojuegos, la programación y el diseño web. Me gusta crear experiencias interactivas que combinen lo profesional con lo divertido.</p>
+  </section>
+
+  <section>
+    <h2>✨ Lo que me gusta</h2>
+    <p>- Videojuegos retro y modernos<br>
+       - Ver el atardecer<br>
+       - Escuchar musica<br>
+       - Ver peliculas y series<br>
+       - Ver eventos en vivos <br>
+       - Hacer Ejercicios
+    </p>
+  </section>
+
+  <section>
+    <h2>📩 Contacto</h2>
+    <p>Email: 22040117@alumno.utc.edu.mx <a href="mailto:tucorreo@example.com" class="btn-gamer">Escríbeme</a></p>
+  </section>
+
+
+  <script>
+    const nameText = "Jony Rojas"; 
+    let i = 0;
+    function typeWriter() {
+      if (i < nameText.length) {
+        document.getElementById("name").textContent += nameText.charAt(i);
+        i++;
+        setTimeout(typeWriter, 150);
+      }
+    }
+    window.onload = typeWriter;
+
+    const canvas = document.getElementById("bg");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particles = [];
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 3 + 1;
+        this.speedX = (Math.random() - 0.5) * 2;
+        this.speedY = (Math.random() - 0.5) * 2;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      }
+      draw() {
+        ctx.fillStyle = '#0ff';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function init() {
+      particles = [];
+      for (let i = 0; i < 100; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let p of particles) {
+        p.update();
+        p.draw();
+      }
+      requestAnimationFrame(animate);
+    }
+
+    init();
+    animate();
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      init();
+    });
+  </script>
+</body>
+</html>
