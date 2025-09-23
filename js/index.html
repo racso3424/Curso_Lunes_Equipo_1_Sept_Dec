@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Perfil de Juan Antonio</title>
+  
   <style>
-    /* Reset */
     * {
       margin: 0;
       padding: 0;
@@ -21,6 +21,8 @@
       align-items: center;
       min-height: 100vh;
       padding: 20px;
+      position: relative;
+      overflow: hidden;
     }
 
     .card {
@@ -31,6 +33,8 @@
       max-width: 600px;
       text-align: center;
       animation: fadeIn 1s ease-in-out;
+      position: relative;
+      z-index: 2;
     }
 
     h1 {
@@ -47,12 +51,87 @@
 
     /* Animación de entrada */
     @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(-20px);}
-      to {opacity: 1; transform: translateY(0);}
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Línea sobre la que corren los animales */
+    .line {
+      position: absolute;
+      bottom: 80px;
+      left: 0;
+      height: 12px;
+      width: 100vw;
+      background: linear-gradient(90deg, #fff, #16a085, #fff);
+      opacity: 0.9;
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: loadLine 8s linear infinite;
+      border-radius: 10px;
+      z-index: 1;
+    }
+
+    @keyframes loadLine {
+      0% { transform: scaleX(0); }
+      100% { transform: scaleX(1); }
+    }
+
+    /* Animales corriendo */
+    .animal {
+      position: absolute;
+      bottom: 80px; /* alineado con la línea */
+      width: 120px;
+      height: 100px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: runAnimals 8s linear infinite;
+      z-index: 2;
+    }
+
+    /* Animación corrida */
+    @keyframes runAnimals {
+      0% { left: -250px; }
+      100% { left: 110%; }
+    }
+
+    /* Diferentes animales con sus imágenes */
+    .fox   { background-image: url('lobo.gif'); width: 160px; height: 120px; }
+    .horse { background-image: url('caballo.gif'); animation-delay: 0.5s; }
+    .lion1 { background-image: url('leon.gif'); animation-delay: 1s; }
+    .jaguar { background-image: url('jaguar.gif'); animation-delay: 1.5s; }
+    .donkey { background-image: url('burro.gif'); animation-delay: 2s; }
+    
+
+    /* Nieve fija */
+    .snow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('nieve.gif');
+      background-size: cover;
+      opacity: 0.4;
+      z-index: 0;
     }
   </style>
 </head>
 <body>
+  <!-- Fondo nieve -->
+  <div class="snow"></div>
+
+  <!-- Línea -->
+  <div class="line"></div>
+
+  <!-- Animales corriendo -->
+  <div class="animal fox"></div>
+  <div class="animal horse"></div>
+  <div class="animal lion1"></div>
+  <div class="animal jaguar"></div>
+  <div class="animal donkey"></div>
+  <div class="animal lion2"></div>
+
+  <!-- Tarjeta -->
   <div class="card">
     <h1>Juan Antonio de Jesús González Rangel</h1>
     <h1>Entornos Virtuales y Negocios Digitales</h1>
