@@ -1,0 +1,16 @@
+/* Variables globales */
+$color-principal: #000000;
+$fuente-principal: 'Poppins', sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo global */
+body {
+  font-family: $fuente-principal;
+  background-color: #f9f9f9;
+  color: #333;
+}
