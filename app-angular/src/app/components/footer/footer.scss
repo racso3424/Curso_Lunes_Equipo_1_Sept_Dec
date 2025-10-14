@@ -1,0 +1,110 @@
+/* Reset y tipografía */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Fondo de la sección */
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: #333;
+}
+
+/* Tarjeta */
+.card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  padding: 2rem;
+  max-width: 600px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+  color: #2c3e50;
+}
+
+h2 {
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+  color: #16a085;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Línea sobre la que corren los animales */
+.line {
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  height: 12px;
+  width: 100vw;
+  background: linear-gradient(90deg, #fff, #16a085, #fff);
+  opacity: 0.9;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: loadLine 8s linear infinite;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+@keyframes loadLine {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+/* Animales corriendo */
+.animal {
+  position: absolute;
+  bottom: 80px;
+  width: 120px;
+  height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: runAnimals 8s linear infinite;
+  z-index: 2;
+}
+
+/* Animación corrida */
+@keyframes runAnimals {
+  0% { left: -250px; }
+  100% { left: 110%; }
+}
+
+/* Diferentes animales con sus imágenes */
+.fox   { background-image: url('/assets/lobo.gif'); width: 160px; height: 120px; }
+.horse { background-image: url('/assets/caballo.gif'); animation-delay: 0.5s; }
+.lion1 { background-image: url('/assets/leon.gif'); animation-delay: 1s; }
+.jaguar { background-image: url('/assets/jaguar.gif'); animation-delay: 1.5s; }
+.donkey { background-image: url('/assets/burro.gif'); animation-delay: 2s; }
+
+/* Nieve fija */
+.snow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/assets/nieve.gif');
+  background-size: cover;
+  opacity: 0.4;
+  z-index: 0;
+}
