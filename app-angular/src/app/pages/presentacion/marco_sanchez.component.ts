@@ -5,8 +5,8 @@ import { Component } from '@angular/core';
   selector: 'app-presentacion',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './presentacion.component.html',
-  styleUrls: ['./presentacion.component.scss']
+  templateUrl: './marco_sanchez.component.html',          
+  styleUrls: ['./marco_sanchez.component.scss']
 })
 export class PresentacionComponent {
   titulo = 'Hola Mundo';
