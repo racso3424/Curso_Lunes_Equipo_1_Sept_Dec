@@ -1,0 +1,105 @@
+:root {
+  // Paleta de colores
+  --bluey-700: #2B6CA3;
+  --bluey-600: #3F84BF;
+  --bluey-500: #5DB7E8;
+  --bluey-300: #9BD9F5;
+  --bingo-400: #F49AA5;
+  --sun-400: #F6C44B;
+  --cream: #FFF8E7;
+  --sky-50: #F4FBFF;
+  --ink: #0F2B46;     // texto principal
+  --shadow: 0 10px 30px rgba(15,43,70,.12);
+  --radius-xl: 1.5rem;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Nunito', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--ink);
+  background: linear-gradient(180deg, var(--sky-50) 0%, #EAF7FF 40%, #E2F4FF 100%);
+  overflow-x: hidden;
+}
+
+// Nubes decorativas
+.cloud {
+  position: absolute;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,.08));
+  opacity: .9;
+
+  svg {
+    display: block;
+  }
+
+  &.c1 {
+    top: 2rem;
+    left: -180px;
+    animation: drift 60s linear infinite;
+  }
+
+  &.c2 {
+    top: 7rem;
+    left: -220px;
+    animation: drift 85s linear infinite reverse;
+    opacity: .7;
+  }
+
+  &.c3 {
+    top: 12rem;
+    left: -200px;
+    animation: drift 70s linear infinite;
+    opacity: .8;
+  }
+}
+
+@keyframes drift {
+  to {
+    transform: translateX(140vw);
+  }
+}
+
+// Onda en el pie del hero
+.wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 120px;
+  color: var(--bluey-500);
+}
+
+// Sección inferior con colinitas
+.hills {
+  position: relative;
+  height: 160px;
+  margin-top: 4rem;
+
+  svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+
+footer {
+  color: #14476F;
+  font-weight: 700;
+}
+
+// Utilidades
+.soft-shadow {
+  box-shadow: var(--shadow);
+}
+
+.rounded-2xl {
+  border-radius: var(--radius-xl);
+}
+
+.text-outline-white {
+  -webkit-text-stroke: 2px #fff;
+}
